@@ -3,7 +3,7 @@ Library  SeleniumLibrary
 Variables  ../webelements.py
 
 *** Variables ***
-&{category}  Toys=220  Books=267    Art=550    Baby=2984    Electronics=293    Music=11233    VideoGames=1249 
+&{category}  Toys=220  Books=267    Art=550    Baby=2984    Electronics=293    Music=11233    VideoGames=1249  Computer=58058  Cellphones=15032
 
 *** Keywords ***
 Choose category

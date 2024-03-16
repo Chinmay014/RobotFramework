@@ -26,14 +26,17 @@ Following is the list of packages that were used with python 3.9
 attrs                          23.2.0
 certifi                        2024.2.2
 cffi                           1.16.0
+docutils                       0.20.1
 exceptiongroup                 1.2.0
 h11                            0.14.0
 idna                           3.6
 outcome                        1.3.0.post0
 pip                            24.0
 pycparser                      2.21
+Pygments                       2.17.2
 PySocks                        1.7.1
 robotframework                 7.0
+robotframework-datadriver      1.11.0
 robotframework-pythonlibcore   4.3.0
 robotframework-seleniumlibrary 6.2.0
 selenium                       4.18.1

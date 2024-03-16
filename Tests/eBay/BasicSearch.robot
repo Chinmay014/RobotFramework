@@ -1,10 +1,12 @@
 *** Settings ***
 Documentation  Basic Search Functionality
 Library  SeleniumLibrary
+Library  DataDriver  ../../TestData/testDataforBasicSearch.csv
 
 Resource  ../../Resources/CommonFunctionality.robot
 Resource  ../../Resources/PageObjects/HeaderPage.robot
 Resource  ../../Resources/PageObjects/SearchResultsPage.robot
+
 
 Suite Setup  Start Testcase
 Suite Teardown  Finish Testcase
@@ -14,14 +16,8 @@ Test Template  Product search
 &{search_term}  item1=Car  item2=Superman
 
 
-*** Test Cases ***    product    category
-Product search1    car    Toys
-Product search2    car    Art
-Product search3    car    Books
-Product search4    superman    Books
-Product search5    superman    Music
-Product search6    superman    VideoGames
-
+*** Test Cases ***
+Product search1    ${product}    ${category}
 
 *** Keywords ***
 
