@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation  Check sorting of results
 Library    SeleniumLibrary
+Library  DataDriver  ../../TestData/testDataforSortSearch.xlsx  sheet_name=Sheet1
 
 Resource    ../../Resources/CommonFunctionality.robot
 Resource  ../../Resources/PageObjects/HeaderPage.robot
@@ -12,11 +13,8 @@ Test Template    Verify Descending Sort
 
 *** Variables ***
 
-*** Test Cases ***    product
-Verify Descending Sort1    car
-Verify Descending Sort2    superman
-Verify Descending Sort3    bat
-Verify Descending Sort4    chicken
+*** Test Cases ***
+Test Descending Sort  ${product}
 
 *** Keywords ***
 Verify Descending Sort
