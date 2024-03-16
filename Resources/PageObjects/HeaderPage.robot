@@ -3,17 +3,13 @@ Library  SeleniumLibrary
 Variables  ../webelements.py
 
 *** Variables ***
-# list Variables
-# @{search_term}  robot  books  travel  mobile
-
-# dictionary
-&{search_term}  item1=Car  item2=Superman
-&{category}  Toys=220  books=267
+&{category}  Toys=220  Books=267    Art=550    Baby=2984    Electronics=293    Music=11233    VideoGames=1249 
 
 *** Keywords ***
 Choose category
+    [Arguments]  ${arg1}
     Click Element    ${HomePage_category_dropdown}
-    Click Element    xpath://option[@value=${category.Toys}]
+    Click Element    xpath://option[@value=${category.${arg1}}]
 Input Search Text and Click Search
     [Arguments]  ${arg1}
     Input Text    ${HomePage_search_textbox}  ${arg1}

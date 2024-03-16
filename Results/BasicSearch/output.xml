@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.9.7 on win32)" generated="2024-03-15T19:27:03.733630" rpa="false" schemaversion="5">
+<suite id="s1" name="BasicSearch" source="F:\DesktopC\PythonUltimateCourse\SoftwareTesting\RobotFramework\Tests\eBay\BasicSearch.robot">
+<kw name="Start Testcase" owner="CommonFunctionality" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-03-15T19:27:03.946270" level="INFO">Opening browser 'chrome' to base url 'https://www.ebay.com'.</msg>
+<msg time="2024-03-15T19:27:04.730631" level="WARN">The chromedriver version (121.0.6167.85) detected in PATH at F:\DesktopC\PythonUltimateCourse\SoftwareTesting\RobotFramework\browserDrivers\chromedriver.exe might not be compatible with the detected chrome version (122.0.6261.129); currently, chromedriver 122.0.6261.128 is recommended for chrome 122.*, so it is advised to delete the driver in PATH and retry</msg>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-03-15T19:27:03.946270" elapsed="3.756371"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-03-15T19:27:07.703281" elapsed="0.119190"/>
+</kw>
+<status status="PASS" start="2024-03-15T19:27:03.945229" elapsed="3.878239"/>
+</kw>
+<test id="s1-t1" name="Product search1" line="18">
+<kw name="Product search">
+<kw name="Choose category" owner="HeaderPage">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-15T19:27:07.826456" level="INFO">Clicking element 'xpath://select[@id="gh-cat"]'.</msg>
+<arg>${HomePage_category_dropdown}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-15T19:27:07.826456" elapsed="0.088499"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-15T19:27:07.916033" level="INFO">Clicking element 'xpath://option[@value=220]'.</msg>
+<arg>xpath://option[@value=${category.${arg1}}]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-15T19:27:07.916033" elapsed="0.168015"/>
+</kw>
+<arg>${category}</arg>
+<status status="PASS" start="2024-03-15T19:27:07.825460" elapsed="0.258588"/>
+</kw>
+<kw name="Input Search Text and Click Search" owner="HeaderPage">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-03-15T19:27:08.086206" level="INFO">Typing text 'car' into text field 'xpath://input[@id="gh-ac"]'.</msg>
+<arg>${HomePage_search_textbox}</arg>
+<arg>${arg1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-15T19:27:08.085613" elapsed="0.461042"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2024-03-15T19:27:08.546655" level="INFO">Sending key(s) ('[RETURN]',) to xpath://input[@id="gh-btn"] element.</msg>
+<msg time="2024-03-15T19:27:09.241198" level="INFO">Sending keys [RETURN]</msg>
+<arg>${HomePage_search_button}</arg>
+<arg>[RETURN]</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2024-03-15T19:27:08.546655" elapsed="4.354539"/>
+</kw>
+<arg>${product}</arg>
+<status status="PASS" start="2024-03-15T19:27:08.084048" elapsed="4.817146"/>
+</kw>
+<kw name="Verify Search Results" owner="SearchResultsPage">
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>5s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2024-03-15T19:27:12.902192" elapsed="0.001993"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-03-15T19:27:12.994813" level="INFO">Current page contains text 'results for car'.</msg>
+<arg>results for ${arg1}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-03-15T19:27:12.905181" elapsed="0.089632"/>
+</kw>
+<arg>${product}</arg>
+<status status="PASS" start="2024-03-15T19:27:12.901194" elapsed="0.094783"/>
+</kw>
+<arg>car</arg>
+<arg>Toys</arg>
+<doc>check categorical search for ${product}</doc>
+<status status="PASS" start="2024-03-15T19:27:07.825460" elapsed="5.170517"/>
+</kw>
+<status status="PASS" start="2024-03-15T19:27:07.823468" elapsed="5.173110"/>
+</test>
+<test id="s1-t2" name="Product search2" line="19">
+<kw name="Product search">
+<kw name="Choose category" owner="HeaderPage">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-15T19:27:12.999667" level="INFO">Clicking element 'xpath://select[@id="gh-cat"]'.</msg>
+<arg>${HomePage_category_dropdown}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-15T19:27:12.999667" elapsed="0.084331"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-15T19:27:13.089373" level="INFO">Clicking element 'xpath://option[@value=550]'.</msg>
+<arg>xpath://option[@value=${category.${arg1}}]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-15T19:27:13.086382" elapsed="0.057181"/>
+</kw>
+<arg>${category}</arg>
+<status status="PASS" start="2024-03-15T19:27:12.999667" elapsed="0.143896"/>
+</kw>
+<kw name="Input Search Text and Click Search" owner="HeaderPage">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-03-15T19:27:13.144560" level="INFO">Typing text 'car' into text field 'xpath://input[@id="gh-ac"]'.</msg>
+<arg>${HomePage_search_textbox}</arg>
+<arg>${arg1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-15T19:27:13.144560" elapsed="0.566786"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2024-03-15T19:27:13.712343" level="INFO">Sending key(s) ('[RETURN]',) to xpath://input[@id="gh-btn"] element.</msg>
+<msg time="2024-03-15T19:27:14.489255" level="INFO">Sending keys [RETURN]</msg>
+<arg>${HomePage_search_button}</arg>
+<arg>[RETURN]</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2024-03-15T19:27:13.712343" elapsed="5.289548"/>
+</kw>
+<arg>${product}</arg>
+<status status="PASS" start="2024-03-15T19:27:13.143563" elapsed="5.858328"/>
+</kw>
+<kw name="Verify Search Results" owner="SearchResultsPage">
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>5s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2024-03-15T19:27:19.002889" elapsed="0.000996"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-03-15T19:27:19.105137" level="INFO">Current page contains text 'results for car'.</msg>
+<arg>results for ${arg1}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-03-15T19:27:19.003885" elapsed="0.102247"/>
+</kw>
+<arg>${product}</arg>
+<status status="PASS" start="2024-03-15T19:27:19.001891" elapsed="0.104241"/>
+</kw>
+<arg>car</arg>
+<arg>Art</arg>
+<doc>check categorical search for ${product}</doc>
+<status status="PASS" start="2024-03-15T19:27:12.998588" elapsed="6.107544"/>
+</kw>
+<status status="PASS" start="2024-03-15T19:27:12.998588" elapsed="6.107544"/>
+</test>
+<test id="s1-t3" name="Product search3" line="20">
+<kw name="Product search">
+<kw name="Choose category" owner="HeaderPage">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-15T19:27:19.110119" level="INFO">Clicking element 'xpath://select[@id="gh-cat"]'.</msg>
+<arg>${HomePage_category_dropdown}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-15T19:27:19.110119" elapsed="0.150559"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-15T19:27:19.261679" level="INFO">Clicking element 'xpath://option[@value=267]'.</msg>
+<arg>xpath://option[@value=${category.${arg1}}]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-15T19:27:19.260678" elapsed="0.301028"/>
+</kw>
+<arg>${category}</arg>
+<status status="PASS" start="2024-03-15T19:27:19.109122" elapsed="0.452584"/>
+</kw>
+<kw name="Input Search Text and Click Search" owner="HeaderPage">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-03-15T19:27:19.561706" level="INFO">Typing text 'car' into text field 'xpath://input[@id="gh-ac"]'.</msg>
+<arg>${HomePage_search_textbox}</arg>
+<arg>${arg1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-15T19:27:19.561706" elapsed="0.125410"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2024-03-15T19:27:19.688051" level="INFO">Sending key(s) ('[RETURN]',) to xpath://input[@id="gh-btn"] element.</msg>
+<msg time="2024-03-15T19:27:24.777859" level="INFO">Sending keys [RETURN]</msg>
+<arg>${HomePage_search_button}</arg>
+<arg>[RETURN]</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2024-03-15T19:27:19.687116" elapsed="5.195331"/>
+</kw>
+<arg>${product}</arg>
+<status status="PASS" start="2024-03-15T19:27:19.561706" elapsed="5.321823"/>
+</kw>
+<kw name="Verify Search Results" owner="SearchResultsPage">
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>5s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2024-03-15T19:27:24.883529" elapsed="0.000933"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-03-15T19:27:24.901544" level="INFO">Current page contains text 'results for car'.</msg>
+<arg>results for ${arg1}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-03-15T19:27:24.885534" elapsed="0.016010"/>
+</kw>
+<arg>${product}</arg>
+<status status="PASS" start="2024-03-15T19:27:24.883529" elapsed="0.018015"/>
+</kw>
+<arg>car</arg>
+<arg>Books</arg>
+<doc>check categorical search for ${product}</doc>
+<status status="PASS" start="2024-03-15T19:27:19.109122" elapsed="5.792422"/>
+</kw>
+<status status="PASS" start="2024-03-15T19:27:19.107129" elapsed="5.795414"/>
+</test>
+<test id="s1-t4" name="Product search4" line="21">
+<kw name="Product search">
+<kw name="Choose category" owner="HeaderPage">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-15T19:27:24.903696" level="INFO">Clicking element 'xpath://select[@id="gh-cat"]'.</msg>
+<arg>${HomePage_category_dropdown}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-15T19:27:24.903696" elapsed="0.071138"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-15T19:27:24.975833" level="INFO">Clicking element 'xpath://option[@value=267]'.</msg>
+<arg>xpath://option[@value=${category.${arg1}}]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-15T19:27:24.975833" elapsed="0.257555"/>
+</kw>
+<arg>${category}</arg>
+<status status="PASS" start="2024-03-15T19:27:24.903696" elapsed="0.329692"/>
+</kw>
+<kw name="Input Search Text and Click Search" owner="HeaderPage">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-03-15T19:27:25.234850" level="INFO">Typing text 'superman' into text field 'xpath://input[@id="gh-ac"]'.</msg>
+<arg>${HomePage_search_textbox}</arg>
+<arg>${arg1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-15T19:27:25.234850" elapsed="0.279083"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2024-03-15T19:27:25.513933" level="INFO">Sending key(s) ('[RETURN]',) to xpath://input[@id="gh-btn"] element.</msg>
+<msg time="2024-03-15T19:27:27.956550" level="INFO">Sending keys [RETURN]</msg>
+<arg>${HomePage_search_button}</arg>
+<arg>[RETURN]</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2024-03-15T19:27:25.513933" elapsed="2.515007"/>
+</kw>
+<arg>${product}</arg>
+<status status="PASS" start="2024-03-15T19:27:25.233388" elapsed="2.795552"/>
+</kw>
+<kw name="Verify Search Results" owner="SearchResultsPage">
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>5s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2024-03-15T19:27:28.028940" elapsed="0.000994"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-03-15T19:27:28.050802" level="INFO">Current page contains text 'results for superman'.</msg>
+<arg>results for ${arg1}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-03-15T19:27:28.029934" elapsed="0.020868"/>
+</kw>
+<arg>${product}</arg>
+<status status="PASS" start="2024-03-15T19:27:28.028940" elapsed="0.021862"/>
+</kw>
+<arg>superman</arg>
+<arg>Books</arg>
+<doc>check categorical search for ${product}</doc>
+<status status="PASS" start="2024-03-15T19:27:24.903696" elapsed="3.147106"/>
+</kw>
+<status status="PASS" start="2024-03-15T19:27:24.903696" elapsed="3.148099"/>
+</test>
+<test id="s1-t5" name="Product search5" line="22">
+<kw name="Product search">
+<kw name="Choose category" owner="HeaderPage">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-15T19:27:28.055783" level="INFO">Clicking element 'xpath://select[@id="gh-cat"]'.</msg>
+<arg>${HomePage_category_dropdown}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-15T19:27:28.055783" elapsed="0.078256"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-15T19:27:28.136322" level="INFO">Clicking element 'xpath://option[@value=11233]'.</msg>
+<arg>xpath://option[@value=${category.${arg1}}]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-15T19:27:28.135321" elapsed="0.414129"/>
+</kw>
+<arg>${category}</arg>
+<status status="PASS" start="2024-03-15T19:27:28.055783" elapsed="0.494185"/>
+</kw>
+<kw name="Input Search Text and Click Search" owner="HeaderPage">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-03-15T19:27:28.551170" level="INFO">Typing text 'superman' into text field 'xpath://input[@id="gh-ac"]'.</msg>
+<arg>${HomePage_search_textbox}</arg>
+<arg>${arg1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-15T19:27:28.551050" elapsed="0.210370"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2024-03-15T19:27:28.762416" level="INFO">Sending key(s) ('[RETURN]',) to xpath://input[@id="gh-btn"] element.</msg>
+<msg time="2024-03-15T19:27:31.672337" level="INFO">Sending keys [RETURN]</msg>
+<arg>${HomePage_search_button}</arg>
+<arg>[RETURN]</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2024-03-15T19:27:28.762416" elapsed="2.999098"/>
+</kw>
+<arg>${product}</arg>
+<status status="PASS" start="2024-03-15T19:27:28.549968" elapsed="3.211546"/>
+</kw>
+<kw name="Verify Search Results" owner="SearchResultsPage">
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>5s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2024-03-15T19:27:31.762523" elapsed="0.000994"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-03-15T19:27:31.779455" level="INFO">Current page contains text 'results for superman'.</msg>
+<arg>results for ${arg1}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-03-15T19:27:31.763517" elapsed="0.016942"/>
+</kw>
+<arg>${product}</arg>
+<status status="PASS" start="2024-03-15T19:27:31.761514" elapsed="0.018945"/>
+</kw>
+<arg>superman</arg>
+<arg>Music</arg>
+<doc>check categorical search for ${product}</doc>
+<status status="PASS" start="2024-03-15T19:27:28.054777" elapsed="3.725682"/>
+</kw>
+<status status="PASS" start="2024-03-15T19:27:28.053961" elapsed="3.727492"/>
+</test>
+<test id="s1-t6" name="Product search6" line="23">
+<kw name="Product search">
+<kw name="Choose category" owner="HeaderPage">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-15T19:27:31.786432" level="INFO">Clicking element 'xpath://select[@id="gh-cat"]'.</msg>
+<arg>${HomePage_category_dropdown}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-15T19:27:31.785441" elapsed="0.094948"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-15T19:27:31.881389" level="INFO">Clicking element 'xpath://option[@value=1249]'.</msg>
+<arg>xpath://option[@value=${category.${arg1}}]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-15T19:27:31.880389" elapsed="0.297807"/>
+</kw>
+<arg>${category}</arg>
+<status status="PASS" start="2024-03-15T19:27:31.785441" elapsed="0.393756"/>
+</kw>
+<kw name="Input Search Text and Click Search" owner="HeaderPage">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-03-15T19:27:32.180184" level="INFO">Typing text 'superman' into text field 'xpath://input[@id="gh-ac"]'.</msg>
+<arg>${HomePage_search_textbox}</arg>
+<arg>${arg1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-15T19:27:32.180184" elapsed="0.265858"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2024-03-15T19:27:32.447047" level="INFO">Sending key(s) ('[RETURN]',) to xpath://input[@id="gh-btn"] element.</msg>
+<msg time="2024-03-15T19:27:34.531781" level="INFO">Sending keys [RETURN]</msg>
+<arg>${HomePage_search_button}</arg>
+<arg>[RETURN]</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2024-03-15T19:27:32.446042" elapsed="2.183490"/>
+</kw>
+<arg>${product}</arg>
+<status status="PASS" start="2024-03-15T19:27:32.180184" elapsed="2.449348"/>
+</kw>
+<kw name="Verify Search Results" owner="SearchResultsPage">
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>5s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2024-03-15T19:27:34.630528" elapsed="0.000997"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-03-15T19:27:34.647360" level="INFO">Current page contains text 'results for superman'.</msg>
+<arg>results for ${arg1}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-03-15T19:27:34.631525" elapsed="0.015835"/>
+</kw>
+<arg>${product}</arg>
+<status status="PASS" start="2024-03-15T19:27:34.629532" elapsed="0.017828"/>
+</kw>
+<arg>superman</arg>
+<arg>VideoGames</arg>
+<doc>check categorical search for ${product}</doc>
+<status status="PASS" start="2024-03-15T19:27:31.785441" elapsed="2.861919"/>
+</kw>
+<status status="PASS" start="2024-03-15T19:27:31.782450" elapsed="2.865911"/>
+</test>
+<kw name="Finish Testcase" owner="CommonFunctionality" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-03-15T19:27:34.650354" elapsed="2.211053"/>
+</kw>
+<status status="PASS" start="2024-03-15T19:27:34.650354" elapsed="2.211053"/>
+</kw>
+<doc>Basic Search Functionality</doc>
+<status status="PASS" start="2024-03-15T19:27:03.734559" elapsed="33.126848"/>
+</suite>
+<statistics>
+<total>
+<stat pass="6" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="6" fail="0" skip="0" id="s1" name="BasicSearch">BasicSearch</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-03-15T19:27:03.929296" level="WARN">Error in file 'F:\DesktopC\PythonUltimateCourse\SoftwareTesting\RobotFramework\Resources\PageObjects\SearchResultsPage.robot' on line 34: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2024-03-15T19:27:03.931177" level="WARN">Error in file 'F:\DesktopC\PythonUltimateCourse\SoftwareTesting\RobotFramework\Resources\PageObjects\SearchResultsPage.robot' on line 40: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2024-03-15T19:27:04.730631" level="WARN">The chromedriver version (121.0.6167.85) detected in PATH at F:\DesktopC\PythonUltimateCourse\SoftwareTesting\RobotFramework\browserDrivers\chromedriver.exe might not be compatible with the detected chrome version (122.0.6261.129); currently, chromedriver 122.0.6261.128 is recommended for chrome 122.*, so it is advised to delete the driver in PATH and retry</msg>
+</errors>
+</robot>

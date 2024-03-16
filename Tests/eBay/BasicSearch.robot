@@ -6,41 +6,28 @@ Resource  ../../Resources/CommonFunctionality.robot
 Resource  ../../Resources/PageObjects/HeaderPage.robot
 Resource  ../../Resources/PageObjects/SearchResultsPage.robot
 
-Test Setup  Start Testcase
-Test Teardown  Finish Testcase
+Suite Setup  Start Testcase
+Suite Teardown  Finish Testcase
+Test Template  Product search
 
 *** Variables ***
+&{search_term}  item1=Car  item2=Superman
 
-*** Test Cases ***
-Verify basic search
-    [Documentation]  check if a categorical search is done
-    [Tags]  Functional
-    
-    HeaderPage.Choose category
-    HeaderPage.Input Search Text and Click Search  car
-    SearchResultsPage.Verify Search Results  car
 
-Verify results sort
-    [Documentation]  check if the results are sorted
-    [Tags]  Functional
+*** Test Cases ***    product    category
+Product search1    car    Toys
+Product search2    car    Art
+Product search3    car    Books
+Product search4    superman    Books
+Product search5    superman    Music
+Product search6    superman    VideoGames
 
-    HeaderPage.Input Search Text and Click Search  car
-    SearchResultsPage.Sort search Results ascending
 
-Verify Price sort
-    [Documentation]  sort from lowest to highest price 
-    HeaderPage.Input Search Text and Click Search  superman
-    SearchResultsPage.Sort search Results ascending
-    ${price_list}=  SearchResultsPage.Get Price
-    Verify List Sorted    ${price_list}
+*** Keywords ***
 
-Verify Price sort reverse
-    [Documentation]  sort from highest to lowest price
-    HeaderPage.Input Search Text and Click Search  superman
-    SearchResultsPage.Sort search Results descending
-    ${price_list}=  SearchResultsPage.Get Price
-    Verify List Sorted    ${price_list}
-
-Verify Advanced Search
-    [Documentation]  verify if advanced search link works
-    HeaderPage.Click on Advanced Search Link
+Product search
+    [Arguments]  ${product}    ${category}
+    [Documentation]  check categorical search for ${product}
+    HeaderPage.Choose category    ${category}
+    HeaderPage.Input Search Text and Click Search    ${product}
+    SearchResultsPage.Verify Search Results    ${product}

@@ -35,8 +35,9 @@ Get Price
     
 Extract Numerical Value
     [Arguments]    ${input_string}
-    ${matches}=  Get Regexp Matches  ${input_string}    \\d+\\.\\d+
-    ${numerical_value}=    Convert To Number    ${matches[0]}
+    ${matches}=  Get Regexp Matches  ${input_string}    [-+]?\\d{1,3}(?:,\\d{3})*(?:\\.\\d+)?
+    Log    ${matches}
+    ${numerical_value}=    Convert To Number    ${matches[0].replace(',','')}
     [Return]    ${numerical_value}
 
 Verify List Sorted
